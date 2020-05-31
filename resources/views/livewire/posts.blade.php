@@ -5,15 +5,15 @@
                 <p class="text-center text-teal-500 text-3xl ">Recent Post</p>
                 <div class=" bg-white-200  rounded border shadow p-3  my-2"> 
                     <p class="text-md">Jeffrid De Ocampo Laxamana </p>
-                    <p class="text-gray-600 text-sm">What are you diong?</p>
+                    <p class="text-gray-600 text-sm">What are you doingng?</p>
                 </div>
                 <div class=" bg-white-200  rounded border shadow p-3  my-2"> 
                     <p class="text-md">Jeffrid De Ocampo Laxamana </p>
-                    <p class="text-gray-600 text-sm">What are you diong?</p>
+                    <p class="text-gray-600 text-sm">What are you doing?</p>
                 </div>
                 <div class=" bg-white-200  rounded border shadow p-3  my-2"> 
                     <p class="text-md">Jeffrid De Ocampo Laxamana </p>
-                    <p class="text-gray-600 text-sm">What are you diong?</p>
+                    <p class="text-gray-600 text-sm">What are you doing?</p>
                 </div>
             </div>
         </div>
