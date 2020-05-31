@@ -1,0 +1,1 @@
+<p>My first Laravel Livewire & Using Tailwind Css</p>
