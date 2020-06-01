@@ -19,12 +19,14 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Script -->
+        <script src="{{ mix('js/app.js') }}"></script>
+        @livewireScripts
+    </body>
     </head>
 
     <body>
 
         @livewire('posts')
-        <script src="{{ mix('js/app.js') }}"></script>
-        @livewireScripts
-    </body>
+       
 </html>
