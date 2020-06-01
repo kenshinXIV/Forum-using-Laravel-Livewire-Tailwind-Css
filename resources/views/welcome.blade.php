@@ -22,11 +22,20 @@
         <!-- Script -->
         <script src="{{ mix('js/app.js') }}"></script>
         @livewireScripts
-    </body>
+   
     </head>
 
-    <body>
-
-        @livewire('posts')
+    <body >
+    <div class="w-full flex border rounded justify-center">
+        <div class="w-7/12 my-4 m-2  p-2 border rounded ">
+            @livewire('posts')
+        </div>    
+        <div class="w-5/12 my-4 m-2  p-2 border rounded "> 
+            @livewire('comments')
+        </div>
+    
+    </div>
        
+       
+    </body>  
 </html>

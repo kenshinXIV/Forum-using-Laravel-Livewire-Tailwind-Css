@@ -14,9 +14,20 @@ class Posts extends Component
     public $content;
     public $user_id = 1;
     public $image;
+    public $active =1;
 
-    protected $listeners = ['fileUpload' => 'handleFileUpload'];
+    
 
+    protected $listeners = [
+        'fileUpload' => 'handleFileUpload',
+        'postSelected',
+    ];
+
+    public function postSelected($postId)
+    {
+        $this->active = $postId;
+       
+    }
     public function handleFileUpload($imageData)
     {
         $this->image = $imageData;
