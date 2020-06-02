@@ -10,7 +10,7 @@
                     <p class="text-red-700 text-xs">{{ $message }}</p>
                 @enderror
                 <div class="py-2">
-                    <button type="submit" class="p-2  bg-blue-500 w-20 rounded shadow text-white">Add</button>
+                    <button type="submit" class="p-2  bg-blue-500 w-30 rounded shadow text-white">Comment</button>
                 </div>
             </div>
             <div>

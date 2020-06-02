@@ -7,12 +7,13 @@ use App\Comment;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic;
+use Illuminate\Support\Facades\Auth;
 
 class Comments extends Component
 {
     public $commentContent;
     public $commentImage;
-    public $user_id =1;
+   
     public $postId =1;
 
     protected $listeners = [
@@ -38,7 +39,7 @@ class Comments extends Component
         $commentImage = $this->storeImage();
 
         Comment::create([
-            'user_id' => $this->user_id,
+            'user_id' => Auth::user()->id,
             'post_id' => $this->postId,
             'comment' => $this->commentContent,
             'image' => $commentImage,
@@ -63,7 +64,7 @@ class Comments extends Component
     public function render()
     {
        
-        $comments = Comment::where('post_id', $this->postId)->latest()->paginate(2);
+        $comments = Comment::where('post_id', $this->postId)->latest()->get();
         return view('livewire.comments')->withComments($comments);
     }
 }

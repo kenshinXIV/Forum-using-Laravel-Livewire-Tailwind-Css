@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\bycrypt;
 
 class User extends Authenticatable
 {
@@ -42,5 +43,9 @@ class User extends Authenticatable
     }
     public function comments(){
         return $this->hasMany(Comment::class);
+    }
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
     }
 }

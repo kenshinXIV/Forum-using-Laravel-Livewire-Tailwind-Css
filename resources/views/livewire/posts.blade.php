@@ -22,7 +22,7 @@
                     <p class="text-red-700 text-xs">{{ $message }}</p>
                 @enderror
                 <div class="py-2">
-                    <button type="submit" class="p-2  bg-blue-500 w-20 rounded shadow text-white">Add</button>
+                    <button type="submit" class="p-2  bg-blue-500 w-20 rounded shadow text-white">Post</button>
                 </div>
             </div>
         </form>
@@ -38,9 +38,8 @@
     
         @foreach($posts as $post)
         <div class=" bg-white-200  rounded border shadow p-3  my-2 {{$active == $post->id ? 'bg-green-200':''}}" wire:click="$emit('postSelected',{{$post->id}})"> 
-            <p class="text-gray-800 text-sm">{{ $post->user->name}} {{$post->id}}<br> 
+            <p class="text-gray-800 text-sm">{{ $post->user->name}} <br> 
             <p class="text-gray-600 text-xs"> {{ $post->created_at->diffForHumans()}}</p>  
-            
             <p class=" text-md">{{ $post->content}}</p>
             @if($post->image)
                 <img src="{{'storage/'.$post->image}}"  width="200">

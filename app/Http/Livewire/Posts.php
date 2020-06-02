@@ -7,12 +7,12 @@ use App\Post;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic;
-
+use Illuminate\Support\Facades\Auth;
 
 class Posts extends Component
 {
     public $content;
-    public $user_id = 1;
+   
     public $image;
     public $active =1;
 
@@ -40,7 +40,7 @@ class Posts extends Component
         $image = $this->storeImage();
 
         Post::create([
-            'user_id' => $this->user_id,
+            'user_id' => Auth::user()->id,
             'content' => $this->content,
             'image' => $image,
            
