@@ -21,8 +21,9 @@
             </div>
         </form>
     </div>
-    
+   
     @foreach($comments as $comment)
+        
         <div class=" bg-white-200  rounded border shadow p-3  my-2" > 
             <p class="text-gray-800 text-sm">{{ $comment->user->name}} <br> 
             <p class="text-gray-600 text-xs"> {{ $comment->created_at->diffForHumans()}}</p>  

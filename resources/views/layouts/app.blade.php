@@ -40,7 +40,7 @@
         @endguest
         
         </div>
-        <div class="flex w-full m-4 justify-center">
+        <div class="container mx-auto px-4 justify-center">
             @yield('content')
         </div>
        
