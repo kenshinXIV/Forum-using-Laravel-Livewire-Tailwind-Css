@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Comment;
+use App\Post;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic;
@@ -13,19 +14,17 @@ class Comments extends Component
 {
     public $commentContent;
     public $commentImage;
-   
-    public $postId =1;
+    public $post;
+    
+    public function mount(Post $post)
+    {
+        $this->post = $post;
+    }
 
     protected $listeners = [
         'commentfileUpload' => 'handleFileUpload',
-        'postSelected',
     ];
 
-    public function postSelected($postId)
-    {
-        $this->postId = $postId;
-       
-    }
     
     public function handleFileUpload($imageData)
     {
@@ -40,7 +39,7 @@ class Comments extends Component
 
         Comment::create([
             'user_id' => Auth::user()->id,
-            'post_id' => $this->postId,
+            'post_id' => $this->post->id,
             'comment' => $this->commentContent,
             'image' => $commentImage,
            
@@ -63,8 +62,6 @@ class Comments extends Component
 
     public function render()
     {
-       
-        $comments = Comment::where('post_id', $this->postId)->latest()->get();
-        return view('livewire.comments')->withComments($comments);
+        return view('livewire.comments')->withComments($this->post->comments()->latest()->get());
     }
 }

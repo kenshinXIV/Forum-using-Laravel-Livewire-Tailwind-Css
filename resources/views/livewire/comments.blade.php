@@ -1,5 +1,5 @@
  <div>
-    <div class="my-4 m-2  p-2 border rounded">
+    <div class=" p-3  my-4 border rounded">
         <p class="text-blue-500 text-xl ">Comment</p>
         <form wire:submit.prevent="store">
             <div class="flex"> 
@@ -21,20 +21,22 @@
             </div>
         </form>
     </div>
-   
+
     @foreach($comments as $comment)
         
-        <div class=" bg-white-200  rounded border shadow p-3  my-2" > 
+        <div class="bg-white-200  rounded border shadow p-3  my-2" > 
             <p class="text-gray-800 text-sm">{{ $comment->user->name}} <br> 
             <p class="text-gray-600 text-xs"> {{ $comment->created_at->diffForHumans()}}</p>  
 
             <p class=" text-md">{{ $comment->comment}}</p>
             @if($comment->image)
-                <img src="{{'storage/'.$comment->image}}"  width="200">
+                <img src="{{ URL::asset('storage/' . $comment->image) }}"  width="200"  class="img rounded">	
             @endif    
+        
 
         </div>
     @endforeach
+
 
  </div>      
 

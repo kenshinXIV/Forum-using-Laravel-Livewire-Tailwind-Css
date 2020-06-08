@@ -14,20 +14,12 @@ class Posts extends Component
     public $content;
    
     public $image;
-    public $active =1;
-
-    
-
+ 
     protected $listeners = [
         'fileUpload' => 'handleFileUpload',
-        'postSelected',
     ];
 
-    public function postSelected($postId)
-    {
-        $this->active = $postId;
-       
-    }
+
     public function handleFileUpload($imageData)
     {
         $this->image = $imageData;
@@ -64,6 +56,6 @@ class Posts extends Component
     public function render()
     {
         $posts= Post::latest()->paginate(5);
-        return view('livewire.posts',)->withPosts($posts);
+        return view('livewire.posts')->withPosts($posts);
     }
 }

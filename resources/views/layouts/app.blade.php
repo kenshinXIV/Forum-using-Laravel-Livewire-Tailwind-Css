@@ -43,13 +43,7 @@
         <div class="container mx-auto px-4 justify-center">
             @yield('content')
         </div>
-       
 
-       
-    
-   
-       
-       
     </body>  
 </html>
 

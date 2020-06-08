@@ -34,17 +34,21 @@
             </div>
     </div>    
     <div class="m-1 border rounded p-2 ">
+  
         <p class="text-center text-teal-500 text-3xl ">Recent Post</p>
     
         @foreach($posts as $post)
-        <div class=" bg-white-200  rounded border shadow p-3  my-2 {{$active == $post->id ? 'bg-green-200':''}}" wire:click="$emit('postSelected',{{$post->id}})"> 
+        <a href="{{ route('show-post',['post' => $post]) }}">
+        <div class=" bg-white-200  rounded border shadow p-3  my-2 hover:bg-green-200" > 
             <p class="text-gray-800 text-sm">{{ $post->user->name}} <br> 
             <p class="text-gray-600 text-xs"> {{ $post->created_at->diffForHumans()}}</p>  
             <p class=" text-md">{{ $post->content}}</p>
             @if($post->image)
                 <img src="{{'storage/'.$post->image}}"  width="200">
             @endif    
+         
         </div>
+        </a>
         @endforeach
         {{ $posts->links() }}
     </div> 
